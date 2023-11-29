@@ -1,0 +1,87 @@
+{
+    "_embedded": {
+        "ua:images": {
+            "_links": {
+                "self": {
+                    "href": "https://api.teleport.org/api/urban_areas/slug:london/images/"
+                }
+            },
+            "photos": [
+                {
+                    "attribution": {
+                        "license": "Attribution-ShareAlike 2.0 Generic (CC BY-SA 2.0)",
+                        "photographer": "User:Colin",
+                        "site": "Flickr",
+                        "source": "https://www.flickr.com/photos/user-colin/16492503186/"
+                    },
+                    "image": {
+                        "mobile": "https://d13k13wj6adfdf.cloudfront.net/urban_areas/london-12fdfd9fcf.jpg",
+                        "web": "https://d13k13wj6adfdf.cloudfront.net/urban_areas/london_web-e8502ca139.jpg"
+                    }
+                }
+            ]
+        }
+    },
+    "_links": {
+        "self": {
+            "href": "https://api.teleport.org/api/urban_areas/slug:london/"
+        },
+        "ua:admin1-divisions": [
+            {
+                "href": "https://api.teleport.org/api/countries/iso_alpha2:GB/admin1_divisions/geonames:ENG/",
+                "name": "England"
+            }
+        ],
+        "ua:cities": {
+            "href": "https://api.teleport.org/api/urban_areas/slug:london/cities/"
+        },
+        "ua:continent": {
+            "href": "https://api.teleport.org/api/continents/geonames:EU/",
+            "name": "Europe"
+        },
+        "ua:countries": [
+            {
+                "href": "https://api.teleport.org/api/countries/iso_alpha2:GB/",
+                "name": "United Kingdom"
+            }
+        ],
+        "ua:details": {
+            "href": "https://api.teleport.org/api/urban_areas/slug:london/details/"
+        },
+        "ua:identifying-city": {
+            "href": "https://api.teleport.org/api/cities/geonameid:2643743/",
+            "name": "London"
+        },
+        "ua:images": {
+            "href": "https://api.teleport.org/api/urban_areas/slug:london/images/"
+        },
+        "ua:primary-cities": [
+            {
+                "href": "https://api.teleport.org/api/cities/geonameid:2643743/",
+                "name": "London"
+            }
+        ],
+        "ua:salaries": {
+            "href": "https://api.teleport.org/api/urban_areas/slug:london/salaries/"
+        },
+        "ua:scores": {
+            "href": "https://api.teleport.org/api/urban_areas/slug:london/scores/"
+        }
+    },
+    "bounding_box": {
+        "latlon": {
+            "east": 0.5933,
+            "north": 51.795,
+            "south": 51.1776,
+            "west": -0.9531
+        }
+    },
+    "continent": "Europe",
+    "full_name": "London, United Kingdom",
+    "is_government_partner": false,
+    "mayor": "Sadiq Khan",
+    "name": "London",
+    "slug": "london",
+    "teleport_city_url": "https://teleport.org/cities/london/",
+    "ua_id": "gcpvj"
+}

@@ -1,0 +1,41 @@
+// let api_key = '4775455acbac3640f659d2f9f12c8dd9';
+// fetch(`http://api.openweathermap.org/geo/1.0/direct?q=merida,yucatan,mx&limit=5&appid=${api_key}`)
+//     .then(response => response.json())
+//     .then(response => console.log(response));
+
+// fetch(`https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&appid={api_key}`)
+//     .then(response => response.json())
+//     .then(response => console.log(response));
+
+// let api_key = 'cbac31133b81c30bacff1cb03f92be12';
+// let city = 'merida,yucatan,mx';
+
+// // Obtener la longitud y latitud usando la API de geolocalización
+// fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${api_key}`)
+//     .then(response => response.json())
+//     .then(data => {
+//         // Verificar si se obtuvo alguna información
+//         if (data.length > 0) {
+//             // Obtener la longitud y latitud de la primera ciudad de la lista (puedes ajustar esto según tus necesidades)
+//             let lon = data[0].lon;
+//             let lat = data[0].lat;
+
+//             // Puedes utilizar lon y lat en otro lugar de tu código
+//             console.log(`Longitud: ${lon}, Latitud: ${lat}`);
+
+//             // Ahora, puedes hacer otra solicitud usando lon y lat
+//             fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${api_key}`)
+//                 .then(response => response.json())
+//                 .then(weatherData => {
+//                     console.log('Datos meteorológicos:', weatherData);
+//                 })
+//                 .catch(error => {
+//                     console.error('Error al obtener datos meteorológicos:', error);
+//                 });
+//         } else {
+//             console.error('No se encontraron datos de geolocalización para la ciudad especificada.');
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error en la solicitud de geolocalización:', error);
+//     });
