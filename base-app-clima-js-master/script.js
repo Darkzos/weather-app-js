@@ -15,7 +15,7 @@ function fetchDatosClima(ciudad) {
         .then(data => data.json())
         .then(data => {
             mostrarDatosClima(data);
-            obtenerFotoCiudad(ciudad);
+            mostrarImagen(ciudad);
         })
         .catch(error => {
             console.error('Error al obtener datos climáticos:', error);
@@ -54,47 +54,41 @@ function mostrarDatosClima(data) {
     divDatosClima.appendChild(iconoInfo)
     divDatosClima.appendChild(descripcionInfo);
     
-}
+}            
 
-function obtenerFotoCiudad(ciudad) {
-    fetch(`${urlBaseTeleport}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log('Respuesta completa de la API de Teleport:', data);
-
-            // Verificar si se obtuvo alguna imagen
-            if (data._embedded && data._embedded['ua:images'] && data._embedded['ua:images'].photos) {
-                const photos = data._embedded['ua:images'].photos;
-
-                // Verificar si hay fotos disponibles
-                if (photos && photos.length > 0) {
-                    let photoUrl = photos[0].image.web;
-                    console.log(`URL de la foto para ${ciudad}:`, photoUrl);
-
-                    // Mostrar la imagen en el elemento HTML
-                    mostrarImagen(photoUrl);
-                } else {
-                    console.warn(`No se encontraron fotos para ${ciudad}.`);
-                }
-            } else {
-                console.error(`No se encontraron fotos para ${ciudad}.`);
-            }
-        })
-        .catch(error => {
-            console.error(`Error al obtener fotos de ${ciudad}:`, error);
-        });
-}
-
-
-
-function mostrarImagen(photoUrl) {
-    // Mostrar la imagen en el elemento HTML
-    const imagenCiudad = document.createElement('img');
-    imagenCiudad.src = photoUrl;
-    imagenCiudad.alt = 'Imagen de la Ciudad';
-    
-    // Agregar la imagen al div correspondiente en el HTML
+function mostrarImagen(ciudad) {
     const divDatosClima = document.getElementById('datosClima');
-    divDatosClima.appendChild(imagenCiudad);
-}
 
+    // Obtener la URL de la imagen de acuerdo a la ciudad
+    let photoUrl;
+
+    // Se hardcodearon algunas opciones, lo ideal sería tener una carpeta de fotos con las imágenes de todas las posibles ciudades que están en el API de openweather o una API de imágenes en línea
+    if (ciudad.toLowerCase() === 'london' || ciudad.toLowerCase() === 'londres') {
+        photoUrl = 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/f5/de/london.jpg?w=700&h=500&s=1';
+    } else if (ciudad.toLowerCase() === 'paris' || ciudad.toLowerCase() === "parís") {
+        photoUrl = 'https://www.viajarafrancia.com/wp-content/uploads/2016/04/Paris-1024x768.jpg';
+    } else if (ciudad.toLowerCase() === 'tokyo' || ciudad.toLowerCase() === 'tokio') {
+        photoUrl = 'https://www.gotokyo.org/es/plan/tokyo-outline/images/main.jpg';
+    } else if (ciudad.toLowerCase() === 'merida' || ciudad.toLowerCase() === "mérida"){
+        photoUrl = 'https://merida.anahuac.mx/hs-fs/hubfs/Resize%20(4).jpg?width=5464&height=3415&name=Resize%20(4).jpg';
+    } else if (ciudad.toLowerCase() === 'new york'){
+        photoUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg';
+    };
+
+    // Verificar si se encontró una URL de imagen para la ciudad
+    if (photoUrl) {
+        // Mostrar la imagen en el elemento HTML
+        const imagenCiudad = document.createElement('img');
+        imagenCiudad.src = photoUrl;
+        imagenCiudad.alt = 'Imagen de la Ciudad';
+
+        // Aplicar estilos CSS para controlar el tamaño de la imagen
+        imagenCiudad.style.maxWidth = '100%';
+        imagenCiudad.style.height = '250px';
+
+        // Agregar la imagen al div correspondiente en el HTML
+        divDatosClima.appendChild(imagenCiudad);
+    } else {
+        console.log(`No se encontró una imagen para ${ciudad}`);
+    }
+}
